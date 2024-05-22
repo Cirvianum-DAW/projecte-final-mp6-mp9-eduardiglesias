@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Models</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <header class="bg-black text-white py-4 text-center md:py-6 lg:py-8">
+    <div class="bg-black flex flex-col justify-center items-center md:flex-row md:items-center md:w-full">
+      <img src="images/car.svg" alt="Logo" class="h-20 w-auto ml-4 mb-2 md:mr-0 md:absolute md:left-0 hidden md:block">
+      <nav class="mb-4 md:mb-0 hidden md:block">
+        <a href="index.html"
+          class="btn text-white p-2 navbar-item hover:bg-white hover:text-black hover:rounded-lg">Home</a>
+        <a href="models.html"
+          class="btn text-white p-2 navbar-item hover:bg-white hover:text-black hover:rounded-lg">Models</a>
+        <a href="contact.html"
+          class="btn text-white p-2 navbar-item hover:bg-white hover:text-black hover:rounded-lg">Contact</a>
+        <a href="help.html"
+          class="btn text-white p-2 navbar-item hover:bg-white hover:text-black hover:rounded-lg">Help</a>
+        <a href="links.html"
+          class="btn text-white p-2 navbar-item hover:bg-white hover:text-black hover:rounded-lg">Links</a>
+      </nav>
+
+      <div class="relative p-3 sm:max-w-xl mx-auto md:hidden">
+        <button id="menu-toggle" class="w-14 h-14 relative focus:outline-none rounded border">
+          <div class="block w-7 h-0.5 absolute left-3.5 top-4 bg-white transform transition duration-300 ease-in-out">
+          </div>
+          <div class="block w-7 h-0.5 absolute left-3.5 top-6 bg-white transform transition duration-300 ease-in-out">
+          </div>
+          <div class="block w-7 h-0.5 absolute left-3.5 top-8 bg-white transform transition duration-300 ease-in-out">
+          </div>
+        </button>
+
+        <div id="menu" class="hidden absolute top-0 left-0 w-full mt-16 bg-black rounded-md shadow-lg">
+          <a href="index.html"
+            class="block text-white text-xs py-2 px-4 hover:bg-white hover:text-black hover:rounded-lg w-full">Home</a>
+          <a href="models.html"
+            class="block text-white text-xs py-2 px-4 hover:bg-white hover:text-black hover:rounded-lg w-full">Models</a>
+          <a href="contact.html"
+            class="block text-white text-xs py-2 px-4 hover:bg-white hover:text-black hover:rounded-lg w-full">Contact</a>
+          <a href="help.html"
+            class="block text-white text-xs py-2 px-4 hover:bg-white hover:text-black hover:rounded-lg w-full">Help</a>
+          <a href="links.html"
+            class="block text-white text-xs py-2 px-4 hover:bg-white hover:text-black hover:rounded-lg w-full">Links</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <script>
+    document.getElementById("menu-toggle").addEventListener("click", function () {
+      var menu = document.getElementById("menu");
+      menu.classList.toggle("hidden");
+      var bars = document.querySelectorAll("#menu-toggle div");
+      bars.forEach(bar => {
+        bar.classList.toggle("rotate-45");
+      });
+    });
+  </script>
+
+  <header class="bg-gray-800 text-white text-center py-4">
+    <h1 class="text-2xl font-bold">CAR MODELS</h1>
+  </header>
+
+  <main class="h-full bg-no-repeat bg-cover w-full" style="
+        background-image: url('/src/images/output/bg_image.webp');
+      ">
+    <div class="container mx-auto flex flex-wrap justify-center">
+      <div class="max-w-sm bg-white border rounded-lg overflow-hidden m-4 shadow-md">
+        <h2 class="text-xl font-bold p-4">Serie 1</h2>
+        <picture>
+          <!-- Fuente de imagen para dispositivos móviles -->
+          <source media="(max-width: 600px)" srcset="images/output/s1.webp">
+          <!-- Imagen por defecto para tabletas y escritorio -->
+          <img src="images/output/bmw-1m.webp" alt="Modelo A" class="w-full h-48 object-cover">
+        </picture>
+        
+        <p class="p-4 hidden md:block">
+          Entry-level luxury with a compact footprint. Dynamic design and
+          performance for an exhilarating driving experience.
+        </p>
+        <br class="hidden md:block" />
+        <a href="serie1.html" class="block text-center bg-gray-800 text-white p-2 hover:bg-black">More details</a>
+      </div>
+
+      <div class="max-w-sm bg-white border rounded-lg overflow-hidden m-4 shadow-md">
+        <h2 class="text-xl font-bold p-4">Serie 2</h2>
+        <picture>
+          <!-- Fuente de imagen para dispositivos móviles -->
+          <source media="(max-width: 600px)" srcset="images/output/s2.webp">
+          <!-- Imagen por defecto para tabletas y escritorio -->
+          <img src="images/output/bmw-2m.webp" alt="Modelo A" class="w-full h-48 object-cover">
+        </picture>
+        <p class="p-4 hidden md:block">
+          Versatile range including coupes and convertibles. Sporty styling
+          and agile handling, striking a balance between performance and
+          practicality.
+        </p>
+        <a href="serie2.html" class="block text-center bg-gray-800 text-white p-2 hover:bg-black">More details</a>
+      </div>
+
+      <div class="max-w-sm bg-white border rounded-lg overflow-hidden m-4 shadow-md">
+        <h2 class="text-xl font-bold p-4">Serie 3</h2>
+        <picture>
+          <!-- Fuente de imagen para dispositivos móviles -->
+          <source media="(max-width: 600px)" srcset="images/output/s3.webp">
+          <!-- Imagen por defecto para tabletas y escritorio -->
+          <img src="images/output/bmw-3m.webp" alt="Modelo A" class="w-full h-48 object-cover">
+        </picture>
+        <p class="p-4 hidden md:block">
+          Iconic compact executive sedan. Timeless design, renowned for its
+          driving dynamics and premium features.
+        </p>
+        <br class="hidden md:block"/>
+        <a href="serie3.html" class="block text-center bg-gray-800 text-white p-2 hover:bg-black">More details</a>
+      </div>
+
+      <div class="max-w-sm bg-white border rounded-lg overflow-hidden m-4 shadow-md">
+        <h2 class="text-xl font-bold p-4">Serie 4</h2>
+        <picture>
+          <!-- Fuente de imagen para dispositivos móviles -->
+          <source media="(max-width: 600px)" srcset="images/output/s4.webp">
+          <!-- Imagen por defecto para tabletas y escritorio -->
+          <img src="images/output/bmw-4m.webp" alt="Modelo A" class="w-full h-48 object-cover">
+        </picture>
+        <p class="p-4 hidden md:block">
+          Coupe and Gran Coupe variants with a sleek and bold appearance.
+          Performance-oriented with cutting-edge technology for a
+          sophisticated driving experience.
+        </p>
+        <a href="serie4.html" class="block text-center bg-gray-800 text-white p-2 hover:bg-black">More details</a>
+      </div>
+
+      <div class="max-w-sm bg-white border rounded-lg overflow-hidden m-4 shadow-md">
+        <h2 class="text-xl font-bold p-4">Serie 5</h2>
+        <picture>
+          <!-- Fuente de imagen para dispositivos móviles -->
+          <source media="(max-width: 600px)" srcset="images/output/s5.webp">
+          <!-- Imagen por defecto para tabletas y escritorio -->
+          <img src="images/output/bmw-5m.webp" alt="Modelo A" class="w-full h-48 object-cover">
+        </picture>
+        <p class="p-4 hidden md:block">
+          Midsize luxury sedan, the epitome of executive comfort. Melds
+          elegance with powerful engines and advanced technology for a refined
+          driving experience.
+        </p>
+        <a href="serie5.html" class="block text-center bg-gray-800 text-white p-2 hover:bg-black">More details</a>
+      </div>
+
+      <div class="max-w-sm bg-white border rounded-lg overflow-hidden m-4 shadow-md">
+        <h2 class="text-xl font-bold p-4">Serie 7</h2>
+        <picture>
+          <!-- Fuente de imagen para dispositivos móviles -->
+          <source media="(max-width: 600px)" srcset="images/output/s7.webp">
+          <!-- Imagen por defecto para tabletas y escritorio -->
+          <img src="images/output/bmw-7m.webp" alt="Modelo A" class="w-full h-48 object-cover">
+        </picture>
+        <p class="p-4 hidden md:block">
+          Flagship full-size luxury sedan. Unparalleled luxury, innovative
+          technology, and a commanding presence.
+        </p>
+        <br class="hidden md:block"/>
+        <a href="serie7.html" class="block text-center bg-gray-800 text-white p-2 hover:bg-black">More details</a>
+      </div>
+
+      <div class="max-w-sm bg-white border rounded-lg overflow-hidden m-4 shadow-md">
+        <h2 class="text-xl font-bold p-4">Serie 8</h2>
+        <picture>
+          <!-- Fuente de imagen para dispositivos móviles -->
+          <source media="(max-width: 600px)" srcset="images/output/s8.webp">
+          <!-- Imagen por defecto para tabletas y escritorio -->
+          <img src="images/output/bmw-8m.webp" alt="Modelo A" class="w-full h-48 object-cover">
+        </picture>
+        <p class="p-4 hidden md:block">
+          Grand Tourer with coupe and convertible options. Exceptional
+          performance, luxurious features, and avant-garde design.
+        </p>
+        <a href="serie8.html" class="block text-center bg-gray-800 text-white p-2 hover:bg-black">More details</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-black text-white text-center p-4 md:p-8 lg:p-12">
+    <p>&copy; 2024 Eduard Iglesias Pujolasus. All rights reserved.</p>
+  </footer>
+</body>
+
+</html>
