@@ -5,6 +5,7 @@ class CarModelComponent {
     this.image = data.image;
     this.description = data.description;
     this.packM = data.pack_m;
+    this.seriesId = data.seriesId;
   }
 
   render() {
@@ -38,7 +39,9 @@ class CarModelComponent {
     deleteButton.className = "delete-btn bg-red-500 text-white px-4 py-2 rounded-lg";
     // Assignem un identificador únic a cada botó d'eliminar
     deleteButton.id = `${this.id}`;
+    deleteButton.dataset.seriesId = this.seriesId; // Afegim l'atribut dataset amb l'ID de la sèrie
     itemElement.appendChild(deleteButton);
+
 
     return itemElement;
 }

@@ -1,12 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
   const dataContainer = document.getElementById('data-container');
-  const apiUrl = 'https://664cbd3fede9a2b556516ae6.mockapi.io/api/cars';
+  const carsApiUrl = 'https://664cbd3fede9a2b556516ae6.mockapi.io/api/cars';
+  const apiUrl = 'https://664cbd3fede9a2b556516ae6.mockapi.io/api';
   const seriesApiUrl = 'https://664cbd3fede9a2b556516ae6.mockapi.io/api/series';
   const form = document.getElementById('car-form');
   const seriesSelect = document.getElementById('series');
 
   // Fetch and display existing car models
-  fetch(apiUrl)
+  fetch(carsApiUrl)
     .then(response => response.json())
     .then(data => {
       data.forEach(item => {
@@ -69,24 +70,28 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
+
   dataContainer.addEventListener('click', async (event) => {
     if (event.target && event.target.tagName === 'BUTTON' && event.target.classList.contains('delete-btn')) {
       const carId = event.target.id;
+      const seriesId = event.target.dataset.seriesId; // Utilitza dataset per obtenir l'atribut seriesId
+      
       try {
-        const response = await fetch(`${apiUrl}/${carId}`, {
+        const deleteResponse = await fetch(`${apiUrl}/series/${seriesId}/cars/${carId}`, {
           method: 'DELETE'
         });
 
-
-        if (response.ok) {
+        if (deleteResponse.ok) {
+          // Eliminar el model de cotxe del DOM
           event.target.parentNode.remove();
         } else {
-          console.error('Error eliminant el cotxe:', response.statusText);
+          console.error('Error eliminant el cotxe:', deleteResponse.statusText);
         }
       } catch (error) {
         console.error('Error:', error);
       }
     }
   });
+
 });
   
