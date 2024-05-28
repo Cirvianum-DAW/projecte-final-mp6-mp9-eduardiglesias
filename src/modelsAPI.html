@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ca">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Models</title>
-  <link rel="stylesheet" href="./styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="bg-gray-100">
+
   <header class="bg-black text-white py-4 text-center md:py-6 lg:py-8">
     <div class="bg-black flex flex-col justify-center items-center md:flex-row md:items-center md:w-full">
       <img src="images/car.svg" alt="Logo" class="h-20 w-auto ml-4 mb-2 md:mr-0 md:absolute md:left-0 hidden md:block">
@@ -66,8 +67,35 @@
     <h1 class="text-2xl font-bold">CAR MODELS</h1>
   </header>
 
-  <main class="h-full bg-no-repeat bg-cover w-full" style="background-image: url('/src/images/output/bg_image.webp');">
-    <div class="container mx-auto flex flex-wrap justify-center" id="data-container">
+  <main class="flex flex-col justify-center items-center h-full bg-no-repeat bg-cover w-full" style="background-image: url('/src/images/output/bg_image.webp');">
+    <div id="form-container" class="bg-white p-8 rounded-lg shadow-md w-full max-w-md mb-8">
+      <form id="car-form" class="space-y-6">
+          <div>
+              <label for="name" class="block text-sm font-medium text-gray-700">Nom:</label>
+              <input type="text" id="name" name="name" required class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+          </div>
+          <div>
+              <label for="image" class="block text-sm font-medium text-gray-700">Imatge:</label>
+              <input type="text" id="image" name="image" required class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+          </div>
+          <div>
+              <label for="description" class="block text-sm font-medium text-gray-700">Descripció:</label>
+              <textarea id="description" name="description" required class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+          </div>
+          <div>
+              <label for="series" class="block text-sm font-medium text-gray-700">Sèrie:</label>
+              <select id="series" name="series" required class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"></select>
+          </div>
+          <div class="flex items-center">
+              <input type="checkbox" id="pack_m" name="pack_m" class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+              <label for="pack_m" class="ml-2 block text-sm font-medium text-gray-700">Pack M</label>
+          </div>
+          <div>
+              <button type="submit" class="w-full bg-indigo-600 text-white py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Afegeix Cotxe</button>
+          </div>
+      </form>
+    </div>
+    <div id="data-container" class="container mx-auto flex flex-wrap justify-center">
       <!-- Aquí s'injectarà el contingut dinàmicament -->
     </div>
   </main>
