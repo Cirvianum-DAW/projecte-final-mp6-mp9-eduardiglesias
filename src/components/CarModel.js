@@ -19,7 +19,6 @@ class CarModelComponent {
         <p class="p-4 hidden md:block">${this.description}</p>
       `;
 
-    // Afegim el text 'PACKM' si packM és true
     if (this.packM) {
       const packMText = document.createElement("p");
       packMText.textContent = "Aquest model té el pack M!";
@@ -29,20 +28,59 @@ class CarModelComponent {
 
     const editButton = document.createElement("button");
     editButton.textContent = "Editar";
-    editButton.className = "bg-blue-500 text-white px-4 py-2 rounded-lg mr-2 ml-4 mb-4";
-    // Assignem un identificador únic a cada botó d'editar
-    editButton.id = `edit-${this.id}`;
+    editButton.className = "edit-btn bg-blue-500 text-white px-4 py-2 rounded-lg mr-2 ml-4 mb-4";
+    editButton.id = `${this.id}`;
+    editButton.dataset.seriesId = this.seriesId;
     itemElement.appendChild(editButton);
 
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Eliminar";
     deleteButton.className = "delete-btn bg-red-500 text-white px-4 py-2 rounded-lg ml-4 mb-4";
-    // Assignem un identificador únic a cada botó d'eliminar
     deleteButton.id = `${this.id}`;
-    deleteButton.dataset.seriesId = this.seriesId; // Afegim l'atribut dataset amb l'ID de la sèrie
+    deleteButton.dataset.seriesId = this.seriesId;
     itemElement.appendChild(deleteButton);
 
 
     return itemElement;
+}
+
+renderEditForm(seriesData) {
+  const form = document.createElement('form');
+  form.className = 'bg-white border rounded-lg overflow-hidden m-4 shadow-md';
+  form.id = `edit-form-${this.id}`;
+  form.innerHTML = `
+  <div id="form-container" class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+    <form id="car-form" class="space-y-6">
+      <div class="p-4 flex items-center"> <!-- Utilitzem la classe flex i items-center per alinear verticalment els elements -->
+        <label for="name" class="block w-1/4">Nom</label> <!-- Utilitzem la classe w-1/4 per fixar la mida del label -->
+        <input type="text" id="name" name="name" class="w-full p-4 border rounded-lg" value="${this.name}">
+      </div>
+      <div class="p-4 flex items-center">
+        <label for="image" class="block w-1/4">Imatge</label>
+        <input type="text" id="image" name="image" class="w-full p-4 border rounded-lg" value="${this.image}">
+      </div>
+      <div class="p-4 flex items-center">
+        <label for="description" class="block w-1/4">Descripció</label>
+        <textarea id="description" name="description" class="w-full p-4 border rounded-lg">${this.description}</textarea>
+      </div>
+      <div class="p-4 flex items-center">
+        <label for="series" class="block w-1/4">Sèrie</label>
+        <select id="series" name="series" class="w-full p-4">
+          ${seriesData.map(series => `<option value="${series.id}" ${series.id === this.seriesId ? 'selected' : ''}>${series.name}</option>`).join('')}
+        </select>
+      </div>
+      <div class="p-4 flex items-center"> <!-- Utilitzem la classe flex i items-center per alinear verticalment els elements -->
+        <label for="pack_m" class="block w-1/4">Pack M</label> <!-- Utilitzem la classe w-1/4 per fixar la mida del label -->
+        <input type="checkbox" id="pack_m" name="pack_m" class="p-4" ${this.packM ? 'checked' : ''}>
+      </div>
+      <input type="hidden" id="series" name="series" value="${this.seriesId}">
+      <div class="p-4 flex justify-center"> <!-- Utilitzem la classe flex i justify-center per centrar horitzontalment els elements -->
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg m-4">Desar</button>
+        <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-lg m-4 cancel-btn">Cancel·lar</button>
+      </div>
+    </form>
+  </div>
+  `;
+  return form;
 }
 }

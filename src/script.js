@@ -93,5 +93,29 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
+  dataContainer.addEventListener('click', async (event) => {
+    if (event.target && event.target.tagName === 'BUTTON' && event.target.classList.contains('edit-btn')) {
+      const carId = event.target.id;
+      const seriesId = event.target.dataset.seriesId; // Utilitza dataset per obtenir l'atribut seriesId
+
+      try {
+        const response = await fetch(`${apiUrl}/series/${seriesId}/cars/${carId}`);
+        const response2 = await fetch(seriesApiUrl);
+        if (response.ok && response2.ok) {
+          const carData = await response.json();
+          const carModel = new CarModelComponent(carData);
+          const seriesData = await response2.json();
+          const editForm = carModel.renderEditForm(seriesData);
+          dataContainer.replaceChild(editForm, event.target.parentNode);
+        } else {
+          console.error('Error fetching car data:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
+      
+    }
+  });
+
 });
   
