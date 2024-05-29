@@ -29,14 +29,14 @@ class CarModelComponent {
 
     const editButton = document.createElement("button");
     editButton.textContent = "Editar";
-    editButton.className = "bg-blue-500 text-white px-4 py-2 rounded-lg mr-2";
+    editButton.className = "bg-blue-500 text-white px-4 py-2 rounded-lg mr-2 ml-4 mb-4";
     // Assignem un identificador únic a cada botó d'editar
     editButton.id = `edit-${this.id}`;
     itemElement.appendChild(editButton);
 
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Eliminar";
-    deleteButton.className = "delete-btn bg-red-500 text-white px-4 py-2 rounded-lg";
+    deleteButton.className = "delete-btn bg-red-500 text-white px-4 py-2 rounded-lg ml-4 mb-4";
     // Assignem un identificador únic a cada botó d'eliminar
     deleteButton.id = `${this.id}`;
     deleteButton.dataset.seriesId = this.seriesId; // Afegim l'atribut dataset amb l'ID de la sèrie

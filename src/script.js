@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     try {
-      const response = await fetch(apiUrl, {
+      const response = await fetch(carsApiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

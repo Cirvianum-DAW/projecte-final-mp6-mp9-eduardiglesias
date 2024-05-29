@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Projecte que utilitza Tailwind CSS i Parcel",
   "scripts": {
-    "dev": "parcel src/index.html && parcel src/index.html --open",
+    "dev": "parcel src/pages/index.html && parcel src/pages/index.html --open",
     "build": "parcel build src/index.html",
     "optimize-images": "node optimize-images.js",
     "dev-with-images": "npm run optimize-images && npm run dev",
