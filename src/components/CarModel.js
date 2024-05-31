@@ -75,12 +75,57 @@ renderEditForm(seriesData) {
       </div>
       <input type="hidden" id="series" name="series" value="${this.seriesId}">
       <div class="p-4 flex justify-center"> <!-- Utilitzem la classe flex i justify-center per centrar horitzontalment els elements -->
-        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg m-4">Desar</button>
-        <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-lg m-4 cancel-btn">Cancel·lar</button>
+        <button type="submit" class="save-btn bg-blue-500 text-white px-4 py-2 rounded-lg m-4">Desar</button>
+        <button type="submit" class="cancel-btn bg-red-500 text-white px-4 py-2 rounded-lg m-4 cancel-btn">Cancel·lar</button>
       </div>
     </form>
   </div>
   `;
+  // Afegeix un gestor d'esdeveniments al botó "Desar"
+  form.querySelector('.save-btn').addEventListener('click', async (event) => {
+    event.preventDefault();
+    const dataContainer = document.getElementById('data-container');
+
+    const newName = form.querySelector('#name').value;
+    const newImage = form.querySelector('#image').value;
+    const newDescription = form.querySelector('#description').value;
+    const newSeriesId = form.querySelector('#series').value;
+    const newPackM = form.querySelector('#pack_m').checked;
+
+    const updatedCarData = {
+      name: newName,
+      image: newImage,
+      description: newDescription,
+      seriesId: newSeriesId,
+      pack_m: newPackM
+    };
+
+    try {
+      const putResponse = await fetch(`https://664cbd3fede9a2b556516ae6.mockapi.io/api/series/${newSeriesId}/cars/${this.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(updatedCarData)
+      });
+
+      if (putResponse.ok) {
+        const updatedCar = await putResponse.json();
+        const updatedCarModel = new CarModelComponent(updatedCar);
+        dataContainer.replaceChild(updatedCarModel.render(), form);
+      } else {
+        console.error('Error actualitzant les dades del cotxe:', putResponse.statusText);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  });
+
+  // Afegeix un gestor d'esdeveniments al botó "Cancel·lar"
+  form.querySelector('.cancel-btn').addEventListener('click', () => {
+    dataContainer.replaceChild(updatedCarModel.render(), form);
+  });
+
   return form;
 }
 }
