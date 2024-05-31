@@ -92,6 +92,27 @@ renderEditForm(seriesData) {
     const newSeriesId = form.querySelector('#series').value;
     const newPackM = form.querySelector('#pack_m').checked;
 
+    const nameInput = form.querySelector('#name');
+    const imageInput = form.querySelector('#image');
+    const descriptionInput = form.querySelector('#description');
+
+    if (nameInput.value.length > 15 || nameInput.value.length === 0) {
+      alert('El nom no pot ser més llarg de 15 caràcters i no pot estar buit.');
+      return;
+    }
+
+    if (imageInput.value.length > 0) {
+      if (!/^\d+$/.test(imageInput.value)) {
+        alert('El nom de la imatge ha de ser un número.');
+        return;
+      }
+    }
+
+    if (descriptionInput.value.length > 80 || descriptionInput.value.length === 0) {
+      alert('La descripció no pot ser més llarga de 80 caràcters i no pot estar buida.');
+      return;
+    }
+
     const updatedCarData = {
       name: newName,
       image: newImage,
@@ -112,6 +133,7 @@ renderEditForm(seriesData) {
       if (putResponse.ok) {
         const updatedCar = await putResponse.json();
         const updatedCarModel = new CarModelComponent(updatedCar);
+        alert('Dades del cotxe actualitzades correctament!');
         dataContainer.replaceChild(updatedCarModel.render(), form);
       } else {
         console.error('Error actualitzant les dades del cotxe:', putResponse.statusText);

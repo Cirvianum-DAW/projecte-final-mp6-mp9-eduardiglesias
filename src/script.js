@@ -40,6 +40,29 @@ document.addEventListener('DOMContentLoaded', function() {
     const seriesId = document.getElementById('series').value;
     const packM = document.getElementById('pack_m').checked;
 
+    const nameInput = form.querySelector('#name');
+    const imageInput = form.querySelector('#image');
+    const descriptionInput = form.querySelector('#description');
+
+    if (nameInput.value.length > 15 || nameInput.value.length === 0) {
+      alert('El nom no pot ser més llarg de 15 caràcters i no pot estar buit.');
+      return;
+    }
+
+  
+    if (imageInput.value.length > 0) {
+      if (!/^\d+$/.test(imageInput.value)) {
+        alert('El nom de la imatge ha de ser un número.');
+        return;
+      }
+    }
+    
+
+    if (descriptionInput.value.length > 80 || descriptionInput.value.length === 0) {
+      alert('La descripció no pot ser més llarga de 80 caràcters i no pot estar buida.');
+      return;
+    }
+
     const newCar = {
       name: name,
       image: image,
@@ -60,6 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (response.ok) {
         const createdCar = await response.json();
         const carModel = new CarModelComponent(createdCar);
+        alert('Cotxe creat correctament!');
         dataContainer.appendChild(carModel.render());
         form.reset();
       } else {
@@ -82,8 +106,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         if (deleteResponse.ok) {
-          // Eliminar el model de cotxe del DOM
           event.target.parentNode.remove();
+          alert('Cotxe eliminat correctament!');
         } else {
           console.error('Error eliminant el cotxe:', deleteResponse.statusText);
         }
