@@ -43,6 +43,24 @@ document.addEventListener("DOMContentLoaded", function () {
     filterCarsByCategory(selectedCategoryId);
   });
 
+  document.getElementById("sort-button").addEventListener("click", function() {
+    sortCarsByName();
+  });
+
+  function sortCarsByName() {
+    fetch(carsApiUrl)
+      .then(response => response.json())
+      .then(data => {
+        data.sort((a, b) => a.name.localeCompare(b.name));
+        dataContainer.innerHTML = '';
+        data.forEach(item => {
+          const carModel = new CarModelComponent(item);
+          dataContainer.appendChild(carModel.render());
+        });
+      })
+      .catch(error => console.error('Error sorting cars:', error));
+  }
+
   // Fetch and display existing car models
   fetch(carsApiUrl)
     .then((response) => response.json())
