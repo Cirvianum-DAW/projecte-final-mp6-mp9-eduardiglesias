@@ -68,8 +68,21 @@
   </header>
 
   <main class="flex flex-col justify-center items-center h-full bg-no-repeat bg-cover w-full" style="background-image: url('/src/images/output/bg_image.webp');">
-    <div id="form-container" class="bg-white p-8 rounded-lg shadow-md w-full max-w-md mb-8 mt-8">
+    <div class="flex flex-col m-4">
+      <button id="filter-button" class="btn bg-indigo-600 text-white py-2 px-4 mb-2 rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Filtrar per categoria</button>
+      <button id="sort-button" class="btn bg-indigo-600 text-white py-2 px-4 mb-2 rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Ordenar alfabèticament</button>
+      <button id="add-car" class="btn bg-indigo-600 text-white py-2 px-4 rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Afegir cotxe</button>
+    </div>
+    <div id="category-container" class="bg-white p-4 rounded-lg shadow-md w-full max-w-md mb-8 mt-8 hidden">
+      <label for="category-select" class="block text-sm font-medium text-gray-700 mb-4">Selecciona una categoria:</label>
+      <select id="category-select" name="category-select" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+        <!-- Categories will be injected here -->
+      </select>
+    </div>
+    
+    <div id="form-container" class="bg-white p-8 rounded-lg shadow-md w-full max-w-md mb-8 mt-8" hidden>
       <form id="car-form" class="space-y-6">
+
           <div>
               <label for="name" class="block text-sm font-medium text-gray-700">Nom:</label>
               <input type="text" id="name" name="name" class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
