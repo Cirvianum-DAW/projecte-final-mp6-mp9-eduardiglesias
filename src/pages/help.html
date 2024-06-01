@@ -20,7 +20,7 @@
         <a href="../pages/contact.html"
           class="btn text-white p-2 navbar-item hover:bg-white hover:text-black hover:rounded-lg">Contact</a>
         <a href="../pages/help.html"
-          class="btn text-white p-2 navbar-item hover:bg-white hover:text-black hover:rounded-lg">Help</a>
+          class="btn text-white p-2 navbar-item hover:bg-white hover:text-black hover:rounded-lg">Help Us</a>
         <a href="../pages/links.html"
           class="btn text-white p-2 navbar-item hover:bg-white hover:text-black hover:rounded-lg">Links</a>
       </nav>
@@ -43,7 +43,7 @@
           <a href="../pages/contact.html"
             class="block text-white text-xs py-2 px-4 hover:bg-white hover:text-black hover:rounded-lg w-full">Contact</a>
           <a href="../pages/help.html"
-            class="block text-white text-xs py-2 px-4 hover:bg-white hover:text-black hover:rounded-lg w-full">Help</a>
+            class="block text-white text-xs py-2 px-4 hover:bg-white hover:text-black hover:rounded-lg w-full">Help Us</a>
           <a href="../pages/links.html"
             class="block text-white text-xs py-2 px-4 hover:bg-white hover:text-black hover:rounded-lg w-full">Links</a>
         </div>
@@ -62,36 +62,43 @@
     });
   </script>
 
-  <header class="bg-gray-800 text-white text-center py-4">
-    <h1 class="text-2xl font-bold">HELP US</h1>
-  </header>
+<header class="bg-gray-800 text-white text-center py-4">
+  <h1 class="text-2xl font-bold">HELP US</h1>
+</header>
 
-  <main class="h-screen flex flex-col items-center justify-start bg-no-repeat bg-cover w-full"
-    style="background-image: url('/src/images/output/bmw_help.webp')">
+<main class="h-screen flex flex-col items-center justify-start bg-no-repeat bg-cover w-full"
+  style="background-image: url('/src/images/output/bmw_help.webp')">
 
-    <form class="bg-white p-8 rounded-2xl mx-auto mt-8 sm:w-1/2">
+  <form class="bg-white p-8 rounded-2xl mx-auto mt-8 sm:w-1/2">
       <h2 class="text-gray-800 text-2xl font-bold mb-4">HELP US</h2>
+      <p class="mb-6 text-gray-700">
+          Volem oferir la millor experiència possible als nostres usuaris. La teva opinió és molt important per a nosaltres. Si us plau, utilitza aquest formulari per enviar-nos les teves valoracions, comentaris o suggeriments sobre com podem millorar la nostra pàgina web. Sigui que es tracti de funcionalitats que t'agradaria veure, problemes que has trobat o qualsevol altre aspecte que creguis que podríem millorar, estarem encantats de escoltar-te. Gràcies per la teva ajuda!
+      </p>
       <div class="mb-4">
-        <input class="w-full py-2 px-4 border-2 border-gray-300 rounded focus:outline-none focus:border-gray-500"
-          placeholder="Put your name here..." />
+          <label for="name" class="block text-gray-800 font-bold mb-2">Name: </label>
+          <input id="name" class="w-full py-2 px-4 border-2 border-gray-300 rounded focus:outline-none focus:border-gray-500"
+              placeholder="Put your name here..." />
       </div>
       <div class="mb-4">
-        <input class="w-full py-2 px-4 border-2 border-gray-300 rounded focus:outline-none focus:border-gray-500"
-          placeholder="Enter your email..." />
+          <label for="email" class="block text-gray-800 font-bold mb-2">Email: </label>
+          <input id="email" class="w-full py-2 px-4 border-2 border-gray-300 rounded focus:outline-none focus:border-gray-500"
+              placeholder="Enter your email..." />
       </div>
       <div class="mb-4">
-        <textarea class="w-full py-2 px-4 border-2 border-gray-300 rounded focus:outline-none focus:border-gray-500"
-          placeholder="Write your message..."></textarea>
+          <label for="message" class="block text-gray-800 font-bold mb-2">Message: </label>
+          <textarea id="message" class="w-full py-2 px-4 border-2 border-gray-300 rounded focus:outline-none focus:border-gray-500"
+              placeholder="Write your message..."></textarea>
       </div>
       <button class="w-full py-2 px-4 bg-gray-700 text-white rounded cursor-pointer transition hover:bg-gray-900">
-        Send Message
+          Send Message
       </button>
-    </form>
-  </main>
+  </form>
+</main>
 
-  <footer class="bg-black text-white text-center p-4 md:p-8 lg:p-12">
-    <p>&copy; 2024 Eduard Iglesias Pujolasus. All rights reserved.</p>
-  </footer>
+<footer class="bg-black text-white text-center p-4 md:p-8 lg:p-12">
+  <p>&copy; 2024 Eduard Iglesias Pujolasus. All rights reserved.</p>
+</footer>
+
 </body>
 
 </html>

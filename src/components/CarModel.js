@@ -15,7 +15,7 @@ class CarModelComponent {
 
     itemElement.innerHTML = `
         <h2 class="text-xl font-bold p-4">${this.name}</h2>
-          <img src="${this.image}.jpg" class="w-full h-48 object-cover">
+          <img src="${this.image}.jpg" class="w-full h-48 object-cover" alt="${this.id}">
         <p class="p-4 hidden md:block">${this.description}</p>
       `;
 
@@ -28,14 +28,14 @@ class CarModelComponent {
 
     const editButton = document.createElement("button");
     editButton.textContent = "Editar";
-    editButton.className = "edit-btn bg-blue-500 text-white px-4 py-2 rounded-lg mr-2 ml-4 mb-4";
+    editButton.className = "edit-btn bg-blue-700 text-white px-4 py-2 rounded-lg mr-2 ml-4 mb-4";
     editButton.id = `${this.id}`;
     editButton.dataset.seriesId = this.seriesId;
     itemElement.appendChild(editButton);
 
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Eliminar";
-    deleteButton.className = "delete-btn bg-red-500 text-white px-4 py-2 rounded-lg ml-4 mb-4";
+    deleteButton.className = "delete-btn bg-red-700 text-white px-4 py-2 rounded-lg ml-4 mb-4";
     deleteButton.id = `${this.id}`;
     deleteButton.dataset.seriesId = this.seriesId;
     itemElement.appendChild(deleteButton);
@@ -55,9 +55,12 @@ renderEditForm(seriesData) {
         <label for="name" class="block w-1/4">Nom</label> <!-- Utilitzem la classe w-1/4 per fixar la mida del label -->
         <input type="text" id="name" name="name" class="w-full p-4 border rounded-lg" value="${this.name}">
       </div>
-      <div class="p-4 flex items-center">
-        <label for="image" class="block w-1/4">Imatge</label>
-        <input type="text" id="image" name="image" class="w-full p-4 border rounded-lg" value="${this.image}">
+      <div class="p-4">
+        <div class="flex items-center">
+          <label for="image" class="block w-1/4">Imatge</label>
+          <input type="number" id="image" name="image" class="w-full p-4 border rounded-lg" value="${this.image}">
+        </div>
+        <p class="text-xs text-gray-500 mt-1">Recorda: El número de la imatge està associat a una imatge per defecte.</p>
       </div>
       <div class="p-4 flex items-center">
         <label for="description" class="block w-1/4">Descripció</label>
